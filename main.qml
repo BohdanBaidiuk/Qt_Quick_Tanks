@@ -7,11 +7,15 @@ Window {
     height: 480
     visible: true
 
-    Object {
-        id: poly
-        anchors {
-            fill: parent
-            bottomMargin: 20
+    Rectangle{
+        width: poly.width
+        height: poly.height
+        Object {
+            id: poly
+            anchors {
+                fill: parent
+                bottomMargin: 20
+            }
         }
     }
 }

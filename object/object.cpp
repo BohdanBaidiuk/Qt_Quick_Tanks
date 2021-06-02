@@ -10,16 +10,23 @@ Object::Object(QQuickItem *parent) : QQuickItem(parent)
 
 QSGNode *Object::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
 {
-    QImage img = QImage("qrc:/image/Track_64_64.png");
-    //auto t = window()->createTextureFromImage(img,QQuickWindow::TextureHasAlphaChannel);
-    QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>(oldNode);
-    if (!node) {
-        node = new QSGSimpleTextureNode();
-        auto texture = window()->createTextureFromImage(img,QQuickWindow::TextureHasAlphaChannel);
-        node->setTexture(texture);
-    }
-    node->setRect(boundingRect());
-    return node;
+     QImage img = QImage(":/image/Track_64_64.png");
+
+     setWidth(img.width());
+     setHeight(img.height());
+
+     qDebug()<<m_width<<" == "<<m_height;
+
+
+
+     QSGSimpleTextureNode *node = static_cast<QSGSimpleTextureNode *>(oldNode);
+     if (!node) {
+         node = new QSGSimpleTextureNode();
+         auto texture = window()->createTextureFromImage(img,QQuickWindow::TextureHasAlphaChannel);
+         node->setTexture(texture);
+     }
+     node->setRect(boundingRect());
+     return node;
 }
 
 int Object::width() const
