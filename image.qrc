@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>image/Track_64_64.png</file>
+        <file>image/Track_64_64.gif</file>
+        <file>image/Bullet.png</file>
     </qresource>
 </RCC>

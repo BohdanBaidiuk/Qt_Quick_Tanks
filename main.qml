@@ -7,9 +7,7 @@ Window {
     height: 480
     visible: true
 
-    Rectangle{
-        width: poly.width
-        height: poly.height
+
         Object {
             id: poly
             anchors {
@@ -17,5 +15,5 @@ Window {
                 bottomMargin: 20
             }
         }
-    }
+
 }

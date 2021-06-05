@@ -1,7 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QSurfaceFormat>
-#include "object/object.h"
+#include "object/map.h"
 
 
 int main(int argc, char *argv[])
@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     format.setSamples(16);
     QSurfaceFormat::setDefaultFormat(format);
 
-    qmlRegisterType<Object>("Object", 1, 0, "Object");
+    qmlRegisterType<Map>("Object", 1, 0, "Object");
 
 
     QQmlApplicationEngine engine;

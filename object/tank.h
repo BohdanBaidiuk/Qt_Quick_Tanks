@@ -1,15 +1,19 @@
 #ifndef TANK_H
 #define TANK_H
 
-#include "object.h"
+#include <QImage>
 #include <QObject>
+#include <QSGSimpleTextureNode>
+#include <QSGTransformNode>
 
-//class Tank : public Object
-//{
-//    Q_OBJECT
-//public:
-//    explicit Tank(QObject *parent = nullptr);
-//
-//};
+class Tank : QObject
+{
+
+public:
+    explicit Tank();
+    QImage image;
+    QSGTransformNode * transformNode = nullptr;
+    QSGSimpleTextureNode * textureNode = nullptr;
+};
 
 #endif // TANK_H

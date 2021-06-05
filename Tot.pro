@@ -9,11 +9,11 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    object/object.cpp \
+    object/map.cpp \
     object/tank.cpp
 
 HEADERS += \
-    object/object.h \
+    object/map.h \
     object/tank.h
 
 FORMS +=

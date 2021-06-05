@@ -1,16 +1,20 @@
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef MAP_H
+#define MAP_H
 
 #include <QQuickItem>
+#include <QSGTransformNode>
 #include <utility>
+#include "tank.h"
 
-class Object : public QQuickItem
+class Map : public QQuickItem
 {
     Q_OBJECT
     Q_PROPERTY(int width READ width WRITE setWidth NOTIFY widthChanged)
     Q_PROPERTY(int height READ height WRITE setHeight NOTIFY heightChanged)
+
+
 public:
-    explicit Object(QQuickItem *parent = nullptr);
+    explicit Map(QQuickItem *parent = nullptr);
 
     int width() const;
     void setWidth(int newWidth);
@@ -25,11 +29,14 @@ signals:
 
 private:
     std::pair<int,int> coordinate;
+    QVector<Tank *> tanks;
+    QVector<QSGTransformNode*> _transformNodes;
     int m_width;
     int m_height;
-    // QQuickItem interface
+
 protected:
     QSGNode *updatePaintNode(QSGNode *, UpdatePaintNodeData *);
+    void keyPressEvent(QKeyEvent *event);
 };
 
-#endif // OBJECT_H
+#endif // MAP_H
