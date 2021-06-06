@@ -24,8 +24,8 @@ public:
 
 signals:
     void widthChanged();
-
     void heightChanged();
+    void move();
 
 private:
     std::pair<int,int> coordinate;
@@ -37,6 +37,13 @@ private:
 protected:
     QSGNode *updatePaintNode(QSGNode *, UpdatePaintNodeData *);
     void keyPressEvent(QKeyEvent *event);
+    void focusInEvent(QFocusEvent *);
+    void keyReleaseEvent(QKeyEvent *event);
+
+
+
+    // QQuickItem interface
+protected:
 };
 
 #endif // MAP_H

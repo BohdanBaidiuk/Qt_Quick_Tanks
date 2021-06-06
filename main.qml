@@ -10,6 +10,7 @@ Window {
 
         Object {
             id: poly
+            focus: true
             anchors {
                 fill: parent
                 bottomMargin: 20

@@ -6,10 +6,16 @@
 #include <QSGNode>
 #include <QMatrix4x4>
 #include <QTransform>
+#include <QTimer>
 
 Map::Map(QQuickItem *parent) : QQuickItem(parent)
 {
     setFlag(QQuickItem::ItemHasContents,true);
+
+    QTimer *time = new QTimer(this);
+    connect(time, &QTimer::timeout, this,&Map::update);
+    time->start(6);
+
 }
 
 QSGNode *Map::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
@@ -29,13 +35,14 @@ QSGNode *Map::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
 
             auto texture = window()->createTextureFromImage(tank->image,QQuickWindow::TextureHasAlphaChannel);
             QSGSimpleTextureNode *strokeNode = new QSGSimpleTextureNode();
-            strokeNode->setRect(100, 100, tank->image.width(), tank->image.height());
+            auto pair = std::pair<int,int>(100,100);
+            tank->setCoordinate(pair);
+            strokeNode->setRect(tank->coordinate().first,tank->coordinate().second, tank->image.width(), tank->image.height());
             strokeNode->setTexture(texture);
             strokeNode->setFlag(QSGNode::OwnedByParent);
             trn->appendChildNode(strokeNode);
             tank->textureNode = strokeNode;
             //_transformNodes.push_back(trn);
-
             tanks.push_back(tank);
         }
 
@@ -45,10 +52,19 @@ QSGNode *Map::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
 
     for(auto &tank:tanks){
 
-        //QTransform transform = QTransform::fromTranslate(0+num, 0).rotate(num);
         //tank->transformNode->setMatrix(QMatrix4x4(transform));
-        tank->textureNode->setRect(0 + num,0 + num,tank->image.width(),tank->image.height());
-        num++;
+
+        //auto c = std::pair<int,int>(tank->coordinate().first + num,tank->coordinate().second + num);
+        //tank->setCoordinate(c);
+        QPointF tt;
+
+        QTransform transform = QTransform::fromTranslate(tank->coordinate().second, tank->coordinate().first).rotate(tank->getAngle());
+
+        //QMatrix4x4 g;
+        //g.rotate(tank->getAngle(),tank->coordinate().first,tank->coordinate().second);
+
+        tank->transformNode->setMatrix(QMatrix4x4(transform));
+        tank->textureNode->setRect(tank->coordinate().first,tank->coordinate().second,tank->image.width(),tank->image.height());
     }
 
 
@@ -58,17 +74,34 @@ QSGNode *Map::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
 void Map::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Up){
-        qDebug()<<"up";
+        auto tank = tanks[1];
+        auto c = std::pair<int,int>(tank->coordinate().first,tank->coordinate().second - 1);
+        tank->setCoordinate(c);
+
     }
     if(event->key() == Qt::Key_Left){
-        qDebug()<<"left";
+         auto tank = tanks[1];
+         tank->setAngle(tank->getAngle() - 1);
     }
     if(event->key() == Qt::Key_Right){
-        qDebug()<<"right";
+        auto tank = tanks[1];
+        tank->setAngle(tank->getAngle() + 1);
     }
     if(event->key() == Qt::Key_Down){
-        qDebug()<<"down";
+        auto tank = tanks[1];
+        auto c = std::pair<int,int>(tank->coordinate().first,tank->coordinate().second+1);
+        tank->setCoordinate(c);
     }
+}
+
+void Map::focusInEvent(QFocusEvent *)
+{
+    forceActiveFocus();
+}
+
+void Map::keyReleaseEvent(QKeyEvent *event)
+{
+
 }
 
 int Map::width() const
