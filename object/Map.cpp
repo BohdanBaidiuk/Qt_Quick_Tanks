@@ -58,7 +58,7 @@ QSGNode *Map::updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *)
         //tank->setCoordinate(c);
         QPointF tt;
 
-        QTransform transform = QTransform::fromTranslate(tank->coordinate().second, tank->coordinate().first).rotate(tank->getAngle());
+        QTransform transform = QTransform::fromScale(tank->coordinate().second, tank->coordinate().first).rotate(tank->getAngle());
 
         //QMatrix4x4 g;
         //g.rotate(tank->getAngle(),tank->coordinate().first,tank->coordinate().second);

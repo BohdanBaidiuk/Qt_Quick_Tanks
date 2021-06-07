@@ -1,0 +1,17 @@
+#ifndef DYNAMICOBJECT_H
+#define DYNAMICOBJECT_H
+
+#include "baseobject.h"
+
+class DynamicObject : public BaseObject
+{
+public:
+    explicit DynamicObject(QObject *parent = nullptr);
+private:
+    int m_angle{};
+    int m_scrore{};
+    int m_scoreRotate{};
+    
+};
+
+#endif // DYNAMICOBJECT_H

@@ -8,13 +8,23 @@ CONFIG += c++17
 
 
 SOURCES += \
+    appcore.cpp \
     main.cpp \
+    object/baseobject.cpp \
+    object/bullet.cpp \
+    object/dynamicobject.cpp \
     object/map.cpp \
-    object/tank.cpp
+    object/staticobject.cpp \
+    scene.cpp
 
 HEADERS += \
+    appcore.h \
+    object/baseobject.h \
+    object/bullet.h \
+    object/dynamicobject.h \
     object/map.h \
-    object/tank.h
+    object/staticobject.h \
+    scene.h
 
 FORMS +=
 
