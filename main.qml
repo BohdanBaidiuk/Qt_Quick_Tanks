@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Window 2.15
-import Object 1.0
+import Scene 1.0
+
 Window {
     id:root
     width: 640
@@ -8,13 +9,9 @@ Window {
     visible: true
 
 
-        Object {
-            id: poly
-            focus: true
-            anchors {
-                fill: parent
-                bottomMargin: 20
-            }
-        }
+    Scene {
+        id: ellipse
+        anchors.fill: parent
+    }
 
 }

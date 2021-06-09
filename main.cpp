@@ -1,20 +1,21 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QSurfaceFormat>
-#include "object/map.h"
+#include "scene.h"
+#include "object/Map.h"
 
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+   // QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
 
 
-    QSurfaceFormat format = QSurfaceFormat::defaultFormat();
-    format.setSamples(16);
-    QSurfaceFormat::setDefaultFormat(format);
+    //QSurfaceFormat format = QSurfaceFormat::defaultFormat();
+    //format.setSamples(16);
+    //QSurfaceFormat::setDefaultFormat(format);
 
-    qmlRegisterType<Map>("Object", 1, 0, "Object");
+    qmlRegisterType<Scene>("Scene", 1, 0, "Scene");
 
 
     QQmlApplicationEngine engine;

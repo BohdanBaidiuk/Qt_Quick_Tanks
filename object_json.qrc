@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/dynamict">
+        <file>object_json_info/tank.json</file>
+    </qresource>
+</RCC>

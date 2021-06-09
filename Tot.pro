@@ -9,21 +9,25 @@ CONFIG += c++17
 
 SOURCES += \
     appcore.cpp \
+    itemobject.cpp \
     main.cpp \
     object/baseobject.cpp \
     object/bullet.cpp \
     object/dynamicobject.cpp \
     object/map.cpp \
     object/staticobject.cpp \
+    object/tank.cpp \
     scene.cpp
 
 HEADERS += \
     appcore.h \
+    itemobject.h \
     object/baseobject.h \
     object/bullet.h \
     object/dynamicobject.h \
     object/map.h \
     object/staticobject.h \
+    object/tank.h \
     scene.h
 
 FORMS +=
@@ -35,4 +39,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     image.qrc \
+    object_json.qrc \
     qml.qrc
