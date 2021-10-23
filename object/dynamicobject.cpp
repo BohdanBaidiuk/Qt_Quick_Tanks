@@ -12,6 +12,18 @@ int DynamicObject::angle() const
 
 void DynamicObject::setAngle(int newAngle)
 {
+    if(m_angle == newAngle){
+        return ;
+    }
+
+    if(newAngle == 360){
+        m_angle = 0;
+        return ;
+    }
+    if(newAngle == -1){
+        m_angle = 359;
+        return ;
+    }
     m_angle = newAngle;
 }
 

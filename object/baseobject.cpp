@@ -25,22 +25,13 @@ void BaseObject::setHealth(int newHealth)
     m_health = newHealth;
 }
 
-int BaseObject::height() const
+const QSizeF &BaseObject::size() const
 {
-    return m_height;
+    return m_size;
 }
 
-void BaseObject::setHeight(int newHeight)
+void BaseObject::setSize(const QSizeF &newSize)
 {
-    m_height = newHeight;
-}
 
-int BaseObject::width() const
-{
-    return m_width;
-}
-
-void BaseObject::setWidth(int newWidth)
-{
-    m_width = newWidth;
+    m_size = newSize;
 }

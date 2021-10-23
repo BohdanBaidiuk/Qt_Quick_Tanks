@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include <QPointF>
+#include <QRectF>
+#include <QSizeF>
 
 class BaseObject : public QObject
 {
@@ -10,25 +12,11 @@ class BaseObject : public QObject
 public:
     explicit BaseObject(QObject *parent = nullptr);
 
-    QPointF point() const;
-    void setPoint(QPointF newPoint);
-
-    int health() const;
-    void setHealth(int newHealth);
-
-    int height() const;
-    void setHeight(int newHeight);
-
-    int width() const;
-    void setWidth(int newWidth);
-
-signals:
-
 private:
-    QPointF m_point{};
+    QRectF m_body{};
+    bool m_crahsed{};
     int m_health{};
-    int m_width{};
-    int m_height{};
+
 };
 
 #endif // BASEOBJECT_H
