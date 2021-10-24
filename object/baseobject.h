@@ -12,10 +12,22 @@ class BaseObject : public QObject
 public:
     explicit BaseObject(QObject *parent = nullptr);
 
+    const QRectF &body() const;
+    void setBody(const QRectF &newBody);
+
+    short health() const;
+    void setHealth(short newHealth);
+
+    void setX(qreal x);
+    void setY(qreal y);
+
+    qreal angle() const;
+    void setAngle(qreal newAngle);
+
 private:
     QRectF m_body{};
-    bool m_crahsed{};
-    int m_health{};
+    short m_health{};
+    qreal m_angle{};
 
 };
 

@@ -5,33 +5,63 @@ BaseObject::BaseObject(QObject *parent) : QObject(parent)
 
 }
 
-QPointF BaseObject::point() const
+const QRectF &BaseObject::body() const
 {
-    return m_point;
+    return m_body;
 }
 
-void BaseObject::setPoint(QPointF newPoint)
+void BaseObject::setBody(const QRectF &newBody)
 {
-    m_point = newPoint;
+    m_body = newBody;
 }
 
-int BaseObject::health() const
+short BaseObject::health() const
 {
     return m_health;
 }
 
-void BaseObject::setHealth(int newHealth)
+void BaseObject::setHealth(short newHealth)
 {
+    if (m_health == newHealth)
+        return;
     m_health = newHealth;
 }
 
-const QSizeF &BaseObject::size() const
+void BaseObject::setX(qreal x)
 {
-    return m_size;
+    if(m_body.x() == x){
+        return;
+    }
+    m_body.setX(x);
 }
 
-void BaseObject::setSize(const QSizeF &newSize)
+void BaseObject::setY(qreal y)
 {
-
-    m_size = newSize;
+    if(m_body.y() == y){
+        return;
+    }
+    m_body.setY(y);
 }
+
+qreal BaseObject::angle() const
+{
+    return m_angle;
+}
+
+void BaseObject::setAngle(qreal newAngle)
+{
+    if(m_angle == newAngle){
+        return ;
+    }
+
+    if(newAngle == 360){
+        m_angle = 0;
+        return ;
+    }
+    if(newAngle == -1){
+        m_angle = 359;
+        return ;
+    }
+    m_angle = newAngle;
+}
+

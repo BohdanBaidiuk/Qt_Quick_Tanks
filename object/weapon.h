@@ -1,11 +1,17 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
+#include <QObject>
+#include <QVector>
 
-class Weapon
+
+class Weapon:public QObject
 {
+    Q_OBJECT
 public:
-    Weapon();
+    Weapon(QObject *parent = nullptr);
+private:
+    int m_count_bullet{};
 };
 
 #endif // WEAPON_H

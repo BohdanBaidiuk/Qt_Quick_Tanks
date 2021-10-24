@@ -7,18 +7,15 @@ class DynamicObject : public BaseObject
 {
 public:
     explicit DynamicObject(QObject *parent = nullptr);
-    int angle() const;
-    void setAngle(int newAngle);
-
     int scrore() const;
     void setScrore(int newScrore);
 
+    int weight() const;
+    void setWeight(int newWeight);
 
 private:
-    int m_angle{};
     int m_scrore{};
-
-
+    int m_weight{};
 };
 
 #endif // DYNAMICOBJECT_H

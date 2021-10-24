@@ -17,6 +17,7 @@ SOURCES += \
     object/map.cpp \
     object/staticobject.cpp \
     object/tank.cpp \
+    object/weapon.cpp \
     scene.cpp
 
 HEADERS += \
@@ -28,6 +29,7 @@ HEADERS += \
     object/map.h \
     object/staticobject.h \
     object/tank.h \
+    object/weapon.h \
     scene.h
 
 FORMS +=

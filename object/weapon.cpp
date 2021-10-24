@@ -1,6 +1,6 @@
 #include "weapon.h"
 
-Weapon::Weapon()
+Weapon::Weapon(QObject *parent): QObject(parent)
 {
 
 }

@@ -9,9 +9,12 @@ Window {
     visible: true
 
 
-    Scene {
-        id: ellipse
+    Rectangle{
         anchors.fill: parent
+        Scene {
+            id: ellipse
+            anchors.fill: parent
+            focus: true
+        }
     }
-
 }
