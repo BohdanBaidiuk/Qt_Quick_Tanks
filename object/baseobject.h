@@ -20,6 +20,8 @@ public:
 
     void setX(qreal x);
     void setY(qreal y);
+    void setWidth(qreal width);
+    void setHeight(qreal height);
 
     qreal angle() const;
     void setAngle(qreal newAngle);

@@ -43,6 +43,16 @@ void BaseObject::setY(qreal y)
     m_body.setY(y);
 }
 
+void BaseObject::setWidth(qreal width)
+{
+    m_body.setWidth(width);
+}
+
+void BaseObject::setHeight(qreal height)
+{
+    m_body.setHeight(height);
+}
+
 qreal BaseObject::angle() const
 {
     return m_angle;
